@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var resultButton: UIButton!
     
+    @IBOutlet var resetButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,15 +41,25 @@ class ViewController: UIViewController {
         
         imageView.image = UIImage(named: "image")
         
+        
+        
         setEntryLabel(label: heightLabel, text: "키가 어떻게 되시나요? (cm)")
         setEntryLabel(label: weightLabel, text: "몸무게는 어떻게 되시나요? (kg)")
+        
+        let userHeight = UserDefaults.standard.string(forKey: "height")
+        heightTextField.text = userHeight
+        
+        let userWeight = UserDefaults.standard.string(forKey: "weight")
+        weightTextField.text = userWeight
         
         setTextField(textField: heightTextField)
         setTextField(textField: weightTextField)
         setConstraintLabel()
         
         setRandomButton()
+        setResetButton()
         setResultButton()
+        
     }
     
     @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
@@ -104,6 +116,11 @@ class ViewController: UIViewController {
         if heightBool && weightBool {
             showResultAlert(height: height, weight: weight)
         }
+        
+        UserDefaults.standard.set(height, forKey: "height")
+        print("userdefault에 키\(height)저장")
+        UserDefaults.standard.set(weight, forKey: "weight")
+        print("userdefault에 몸무게\(weight)저장")
     }
     
     @IBAction func randomButtonTapped(_ sender: UIButton) {
@@ -113,6 +130,16 @@ class ViewController: UIViewController {
         showResultAlert(height: randomHeight, weight: randomWeight)
     }
     
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            UserDefaults.standard.removeObject(forKey: key.description)
+        }
+        print("userDefault초기화")
+        
+        heightTextField.text = ""
+        weightTextField.text = UserDefaults.standard.string(forKey: "weight")
+    }
     
     
     func setEntryLabel(label: UILabel, text: String) {
@@ -153,6 +180,13 @@ class ViewController: UIViewController {
         resultButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         resultButton.tintColor = .darkGray
         resultButton.layer.cornerRadius = 15
+    }
+    
+    
+    func setResetButton() {
+        resetButton.setTitle("정보 초기화", for: .normal)
+        resetButton.setTitleColor(.darkGray, for: .normal)
+        resetButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
     }
     
     func calculateBMI(height: Double, weight: Double) -> Double {

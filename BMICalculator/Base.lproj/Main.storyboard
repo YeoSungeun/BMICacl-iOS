@@ -123,6 +123,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zD6-n2-cD2">
+                                <rect key="frame" x="312" y="589.33333333333337" width="46" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="FyK-zT-PQC"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3M8-rY-mpG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -143,6 +154,8 @@
                             <constraint firstItem="8pv-5M-1ow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Myw-1y-jei"/>
                             <constraint firstItem="CXL-m4-mCI" firstAttribute="top" secondItem="j6B-iv-CuX" secondAttribute="bottom" constant="10" id="N4c-9n-hYb"/>
                             <constraint firstItem="y5i-OY-dek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="RlZ-te-Y4g"/>
+                            <constraint firstItem="zD6-n2-cD2" firstAttribute="top" secondItem="CXL-m4-mCI" secondAttribute="bottom" constant="4" id="Xj6-gd-DII"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zD6-n2-cD2" secondAttribute="trailing" constant="35" id="YD7-N7-FMT"/>
                             <constraint firstItem="y5i-OY-dek" firstAttribute="top" secondItem="fSx-Xi-e1K" secondAttribute="bottom" constant="1" id="ZXN-vM-Vbg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CXL-m4-mCI" secondAttribute="trailing" constant="35" id="cow-Ym-jxw"/>
                             <constraint firstItem="ieg-z1-CdJ" firstAttribute="leading" secondItem="ObW-3k-DaF" secondAttribute="trailing" constant="30" id="eMc-8W-HFT"/>
@@ -165,6 +178,7 @@
                         <outlet property="heightTextField" destination="fSx-Xi-e1K" id="2S5-UD-cVb"/>
                         <outlet property="imageView" destination="ieg-z1-CdJ" id="MkY-dc-fWA"/>
                         <outlet property="randomBMIButton" destination="CXL-m4-mCI" id="qCm-Ku-Aho"/>
+                        <outlet property="resetButton" destination="zD6-n2-cD2" id="IYw-G5-13N"/>
                         <outlet property="resultButton" destination="nag-IB-fP7" id="dcB-pE-klf"/>
                         <outlet property="subTitleLabel" destination="ObW-3k-DaF" id="dOg-3N-U08"/>
                         <outlet property="titleLabel" destination="JaD-PY-fI1" id="RiZ-LZ-2XA"/>
